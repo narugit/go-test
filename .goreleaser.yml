@@ -12,7 +12,7 @@ builds:
       - -X main.Version={{.Version}}
       - -X main.Revision={{.ShortCommit}}
     goos:
-      - darwin
+      - linux
     goarch:
       - amd64
     env:
