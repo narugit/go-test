@@ -12,12 +12,11 @@ builds:
       - -X main.Version={{.Version}}
       - -X main.Revision={{.ShortCommit}}
     goos:
-      - linux
       - darwin
     goarch:
       - amd64
     env:
-      - CGO_ENABLED=0
+      - CGO_ENABLED=1
 archives:
   - name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
     replacements:
