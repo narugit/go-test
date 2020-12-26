@@ -5,22 +5,12 @@ on:
       - "*"
 jobs:
   goreleaser:
-    runs-on: ubuntu-18.04
+    runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v1
         with:
           fetch-depth: 1
-      - name: Install dependencies
-        run: |
-          sudo apt update
-          sudo apt -V install \
-            gcc libc6-dev \
-            libx11-dev xorg-dev libxtst-dev libpng++-dev \
-            xcb libxcb-xkb-dev x11-xkb-utils libx11-xcb-dev libxkbcommon-x11-dev \
-            libxkbcommon-dev \
-            xsel xclip \
-            gobjc++
       - name: Setup Go
         uses: actions/setup-go@v1
         with:
