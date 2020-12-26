@@ -1,0 +1,5 @@
+package iio
+
+func DoSome(){
+	//
+}
