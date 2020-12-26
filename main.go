@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 import (
-	mm "github.com/narugit/go-test/mymod/io"
+	mm "go-test/mymod/io"
 )
 
 
