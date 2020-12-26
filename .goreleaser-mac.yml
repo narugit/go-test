@@ -6,15 +6,30 @@ before:
     - go mod tidy
 builds:
   - main: .
+  - id: darwin-build
     binary: go-test
     ldflags:
-      - -s
+      - -s -w
+      - -X main.Version={{.Version}}
+      - -X main.Revision={{.ShortCommit}}
     env:
       - CGO_ENABLED=1
       - CC=/home/runner/work/osxcross/target/bin/o64-clang
       - CXX=/home/runner/work/osxcross/target/bin/o64-clang++
     goos:
       - darwin
+    goarch:
+      - amd64
+  - id: linux-build
+    binary: go-test
+    ldflags:
+      - -s -w
+      - -X main.Version={{.Version}}
+      - -X main.Revision={{.ShortCommit}}
+    env:
+      - CGO_ENABLED=1
+    goos:
+      - linux
     goarch:
       - amd64
 archives:
