@@ -1,4 +1,9 @@
 project_name: go-test
+env:
+  - GO111MODULE=on
+before:
+  hooks:
+    - go mod tidy
 builds:
   - main: .
     binary: go-test
