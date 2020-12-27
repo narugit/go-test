@@ -21,7 +21,8 @@ jobs:
             libxkbcommon-dev \
             xsel xclip \
             gobjc++ \
-            g++-aarch64-linux-gnu
+            g++-aarch64-linux-gnu \
+            libc6-dev-arm64-cross
       - name: Setup Go
         uses: actions/setup-go@v1
         with:
