@@ -17,6 +17,8 @@ builds:
       - arm64
     env:
       - CGO_ENABLED=1
+      - CGO_INCLUDE="-I/usr/include"
+      - CGO_LDFLAGS="-L/usr/local/lib"
       - CC=aarch64-linux-gnu-gcc
 archives:
   - name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
