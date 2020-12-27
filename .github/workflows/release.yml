@@ -20,11 +20,8 @@ jobs:
             xcb libxcb-xkb-dev x11-xkb-utils libx11-xcb-dev libxkbcommon-x11-dev \
             libxkbcommon-dev \
             xsel xclip \
-            gobjc++
-      - name: OSXCross for CGO Support
-        run: |
-          mkdir ../../osxcross
-          git clone https://github.com/plentico/osxcross-target.git ../../osxcross/target
+            gobjc++ \
+            g++-arm-linux-gnueabihf
       - name: Setup Go
         uses: actions/setup-go@v1
         with:
@@ -33,6 +30,6 @@ jobs:
         uses: goreleaser/goreleaser-action@v1
         with:
           version: latest
-          args: release --rm-dist --config .goreleaser-mac.yml
+          args: release --rm-dist --config .goreleaser-ubuntu.yml
         env:
           GITHUB_TOKEN: ${{ github.token }}
